@@ -40,7 +40,7 @@ CREATE TABLE servicio (
 );
 
 CREATE TABLE tarjeta (
-    id SERIAL PRIMARY KEY
+    id SERIAL PRIMARY KEY,
     numero INT PRIMARY KEY,
     id_cliente INT NOT NULL,
     tipo VARCHAR(100) NOT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE contratacion(
     descripcion_trabajo VARCHAR(300),
     calificacion_servicio FLOAT NOT NULL,
     CONSTRAINT fk_cliente_contratacion
-        FOREIGN KEY (id_cliente) ref REFERENCES cliente(id) ON UPDATE CASCADE ON DELETE CASCADE,
+        FOREIGN KEY (id_cliente) REFERENCES cliente(id) ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT fk_trabajador_contratacion
         FOREIGN KEY (id_trabajador) REFERENCES trabajador(id) ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT fk_servicio_contratacion
