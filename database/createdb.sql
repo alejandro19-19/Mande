@@ -58,11 +58,11 @@ CREATE TABLE pago (
     id_trabajador INT NOT NULL,
     valor_pago INT NOT NULL,
     CONSTRAINT fk_cliente_pago
-        FOREIGN KEY (id_cliente) REFERENCES cliente(id),
+        FOREIGN KEY (id_cliente) REFERENCES cliente(id) ON UPDATE CASCADE ON DELETE SET NULL,
     CONSTRAINT fk_tarjeta_pago
-        FOREIGN KEY (id_tarjeta) REFERENCES tarjeta(id),
+        FOREIGN KEY (id_tarjeta) REFERENCES tarjeta(id) ON UPDATE CASCADE ON DELETE SET NULL,
     CONSTRAINT fk_trabajador_pago
-        FOREIGN KEY (id_trabajador) REFERENCES trabajador(id)
+        FOREIGN KEY (id_trabajador) REFERENCES trabajador(id) ON UPDATE CASCADE ON DELETE SET NULL
 );
 
 CREATE TABLE contratacion(
@@ -73,11 +73,11 @@ CREATE TABLE contratacion(
     descripcion_trabajo VARCHAR(300),
     calificacion_servicio FLOAT NOT NULL,
     CONSTRAINT fk_cliente_contratacion
-        FOREIGN KEY (id_cliente) ref REFERENCES cliente(id),
+        FOREIGN KEY (id_cliente) ref REFERENCES cliente(id) ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT fk_trabajador_contratacion
-        FOREIGN KEY (id_trabajador) REFERENCES trabajador(id),
+        FOREIGN KEY (id_trabajador) REFERENCES trabajador(id) ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT fk_servicio_contratacion
-        FOREIGN KEY (id_servicio) REFERENCES servicio(id)
+        FOREIGN KEY (id_servicio) REFERENCES servicio(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE prestar_servicio (
@@ -86,7 +86,7 @@ CREATE TABLE prestar_servicio (
     calificacion FLOAT NOT NULL,
     valor_fraccion INT NOT NULL,
     CONSTRAINT fk_trabajadro_prestar_servicio
-        FOREIGN KEY (id_trabajador) REFERENCES trabajador(id),
+        FOREIGN KEY (id_trabajador) REFERENCES trabajador(id) ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT fk_servicio_prestar_servicio
-        FOREIGN KEY (id_servicio) REFERENCES servicio(id)
+        FOREIGN KEY (id_servicio) REFERENCES servicio(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
