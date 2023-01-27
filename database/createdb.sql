@@ -41,7 +41,7 @@ CREATE TABLE servicio (
 
 CREATE TABLE tarjeta (
     id SERIAL,
-    numero VARCHAR(150),
+    numero VARCHAR(300),
     id_cliente INT NOT NULL,
     tipo VARCHAR(100) NOT NULL,
     cvv VARCHAR(100) NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE tarjeta (
 CREATE TABLE pago (
     id SERIAL PRIMARY KEY,
     id_cliente INT NOT NULL,
-    numero_tarjeta VARCHAR(150) NOT NULL,
+    numero_tarjeta VARCHAR(300) NOT NULL,
     id_tarjeta INT NOT NULL,
     id_trabajador INT NOT NULL,
     valor_pago INT NOT NULL,
