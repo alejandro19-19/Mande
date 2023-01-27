@@ -29,7 +29,7 @@ CREATE TABLE trabajador (
     numero_celular VARCHAR(100) NOT NULL,
     fecha_nacimiento DATE NOT NULL,
     direccion_residencia VARCHAR(100) NOT NULL,
-    disponible BOOLEAN NOT NULL,
+    disponible BOOLEAN NOT NULL DEFAULT true,
     documento_identidad VARCHAR(300) NOT NULL,
     foto_perfil VARCHAR(300) NOT NULL
 );
