@@ -1,0 +1,19 @@
+ejemplo 
+
+var express = require('express');
+var router = express.Router();
+ 
+router.get('/', function (req, res, next) {
+    res.render('crear', { title: 'Express' });
+  });
+
+module.exports = router;
+
+
+las urls se pueden ver en el archivo app.js 
+
+hay 2 ejemplos de lo que modificamos nosotros, uno esta en hello.js y el otro esta en el post de usuario.js
+
+en config.js debe colocar la informacion de su postgres y no olvide eliminar lo de host que es para el server
+
+NOTA CUANDO USE EL POSTMAN, DENTRO DEL BODY UTILIZE EL X-WWW-FORM-URLENCODED
