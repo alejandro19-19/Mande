@@ -29,7 +29,7 @@ CREATE TABLE trabajador (
     numero_celular VARCHAR(100) NOT NULL,
     fecha_nacimiento DATE NOT NULL,
     direccion_residencia VARCHAR(100) NOT NULL,
-    disponible BOOLEAN NOT NULL,
+    disponible BOOLEAN NOT NULL DEFAULT true,
     documento_identidad VARCHAR(300) NOT NULL,
     foto_perfil VARCHAR(300) NOT NULL
 );
@@ -41,7 +41,7 @@ CREATE TABLE servicio (
 
 CREATE TABLE tarjeta (
     id SERIAL,
-    numero INT,
+    numero VARCHAR(300),
     id_cliente INT NOT NULL,
     tipo VARCHAR(100) NOT NULL,
     cvv VARCHAR(100) NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE tarjeta (
 CREATE TABLE pago (
     id SERIAL PRIMARY KEY,
     id_cliente INT NOT NULL,
-    numero_tarjeta INT NOT NULL,
+    numero_tarjeta VARCHAR(300) NOT NULL,
     id_tarjeta INT NOT NULL,
     id_trabajador INT NOT NULL,
     valor_pago INT NOT NULL,
