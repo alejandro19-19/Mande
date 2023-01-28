@@ -1,0 +1,160 @@
+
+http://localhost:3000/trabajador/1/   get
+
+{
+    "error": false,
+    "result": [
+        {
+            "id": 1,
+            "nombre": "alejandro",
+            "apellidos": "escobar",
+            "email": "alejandro@gmail.com",
+            "numero_celular": "1234",
+            "fecha_nacimiento": "2019-01-01T05:00:00.000Z",
+            "direccion_residencia": "calle 5 prueba",
+            "disponible": true,
+            "documento_identidad": "direcciondeldocumento",
+            "foto_perfil": "foto"
+        }
+    ]
+}
+
+http://localhost:3000/trabajador      get
+{
+    "error": false,
+    "result": [
+        {
+            "id": 1,
+            "nombre": "alejandro",
+            "apellidos": "escobar",
+            "email": "alejandro@gmail.com",
+            "numero_celular": "1234",
+            "fecha_nacimiento": "2019-01-01T05:00:00.000Z",
+            "direccion_residencia": "calle 5 prueba",
+            "disponible": true,
+            "documento_identidad": "direcciondeldocumento",
+            "foto_perfil": "foto"
+        },
+        {
+            "id": 2,
+            "nombre": "alejandro",
+            "apellidos": "peñaranda",
+            "email": "peñaranda@gmail.com",
+            "numero_celular": "1234",
+            "fecha_nacimiento": "2019-01-01T05:00:00.000Z",
+            "direccion_residencia": "calle 4 prueba",
+            "disponible": true,
+            "documento_identidad": "direcciondeldocumento",
+            "foto_perfil": "foto"
+        },
+    ]
+}
+http://localhost:3000/trabajador/    post
+
+ingresas este json
+
+{
+    "nombre": "fernando",
+    "apellidos": "escobar",
+    "email": "fernando@gmail.com",
+    "numero_celular": "1234",
+    "fecha_nacimiento": "2019-01-01T05:00:00.000Z",
+    "direccion_residencia": "calle 6 prueba",
+    "documento_identidad": "direcciondeldocumento",
+    "foto_perfil": "foto"
+}
+
+obtienes este
+
+{
+    "error": false,
+    "informacion": "el trabajador se ha creado exitosamente"
+}
+
+http://localhost:3000/cliente/    get
+
+{
+    "error": false,
+    "result": [
+        {
+            "id": 1,
+            "nombre": "juan",
+            "apellidos": "santa",
+            "email": "juan@gmail.com",
+            "numero_celular": "1234",
+            "fecha_nacimiento": "2019-01-01T05:00:00.000Z",
+            "direccion_residencia": "calle 5 prueba",
+            "recibo_servicio_publico": "recibo"
+        },
+        {
+            "id": 2,
+            "nombre": "miguel",
+            "apellidos": "fernandez",
+            "email": "miguel@gmail.com",
+            "numero_celular": "1234",
+            "fecha_nacimiento": "2019-01-01T05:00:00.000Z",
+            "direccion_residencia": "calle 4 prueba",
+            "recibo_servicio_publico": "elrecibo"
+        }
+    ]
+}
+
+http://localhost:3000/cliente/1/    get
+
+{
+    "error": false,
+    "result": [
+        {
+            "id": 1,
+            "nombre": "juan",
+            "apellidos": "santa",
+            "email": "juan@gmail.com",
+            "numero_celular": "1234",
+            "fecha_nacimiento": "2019-01-01T05:00:00.000Z",
+            "direccion_residencia": "calle 5 prueba",
+            "recibo_servicio_publico": "recibo"
+        }
+    ]
+}
+
+http://localhost:3000/cliente/    post
+
+ingresas este json
+
+{
+    "nombre": "camilo",
+    "apellidos": "gomez",
+    "email": "camilo@gmail.com",
+    "numero_celular": "1234",
+    "fecha_nacimiento": "2019-01-01T05:00:00.000Z",
+    "direccion_residencia": "calle 6 prueba",
+    "documento_identidad": "direcciondeldocumento",
+    "recibo_servicio_publico": "servicio"
+}
+
+obtienes esto
+
+{
+    "error": false,
+    "informacion": "el cliente se ha creado exitosamente"
+}
+
+http://localhost:3000/registrar_medio_pago/    post
+
+ingresas este json
+
+{
+    "numero": 12345,
+    "id_cliente": 1,
+    "tipo": "credito",
+    "cvv": "1234",
+    "nombre_titular": "alejandro escobar",
+    "fecha_vencimiento": "2022-05-05"
+}
+
+obtienes esto
+
+{
+    "error": false,
+    "informacion": "el medio de pago se ha registrado exitosamente"
+}
