@@ -162,9 +162,9 @@ http://localhost:3000/contratacion con POST
 mandas esto 
 
 {
-	"id_cliente":2
-	"id_trabajador":1
-	"id_servicio":2
+	"id_cliente":2,
+	"id_trabajador":1,
+	"id_servicio":2,
 	"descripcion_trabajo":"prueba con json" (si el cliente no manda descripccion toca dejar este de todos modos con ""
 }
 
@@ -195,8 +195,8 @@ http://localhost:3000/contratacion con GET
 mandas esto 
 
 {
-	"id_cliente":2
-	"id_trabajador":1
+	"id_cliente":2,
+	"id_trabajador":1,
 	"id_servicio":2
  
 }
