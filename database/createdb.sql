@@ -73,7 +73,7 @@ CREATE TABLE contratacion(
     id_trabajador INT,
     id_servicio INT,
     descripcion_trabajo VARCHAR(300),
-    calificacion_servicio FLOAT NOT NULL,
+    calificacion_servicio INT,
     PRIMARY KEY (id, id_cliente, id_trabajador,id_servicio),
     CONSTRAINT fk_cliente_contratacion
         FOREIGN KEY (id_cliente) REFERENCES cliente(id) ON UPDATE CASCADE ON DELETE CASCADE,
@@ -87,7 +87,7 @@ CREATE TABLE contratacion(
 CREATE TABLE prestar_servicio (
     id_trabajador INT,
     id_servicio INT,
-    calificacion FLOAT NOT NULL,
+    calificacion FLOAT,
     valor_fraccion INT NOT NULL,
     PRIMARY KEY (id_trabajador, id_servicio),
     CONSTRAINT fk_trabajadro_prestar_servicio

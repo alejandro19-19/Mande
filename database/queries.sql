@@ -22,3 +22,10 @@ INSERT INTO  cliente(nombre,apellidos,email,numero_celular,fecha_nacimiento,dire
 ('juan', 'santa', 'juan@gmail.com', '1234', '2019-01-01', 'calle 5 prueba', 'recibo'),
 ('miguel', 'fernandez', 'miguel@gmail.com', '1234', '2019-01-01', 'calle 4 prueba', 'elrecibo')
 ;
+INSERT INTO servicio (tipo) VALUES
+('paseador de perro'),
+('plomero'),
+('electricista'),
+('cerrajero'),
+('pintor'),
+('profesor de ingles');
