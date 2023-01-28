@@ -144,7 +144,7 @@ http://localhost:3000/registrar_medio_pago/    post
 ingresas este json
 
 {
-    "numero": 12345,
+    "numero": "1234567",
     "id_cliente": 1,
     "tipo": "credito",
     "cvv": "1234",
