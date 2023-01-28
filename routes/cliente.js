@@ -6,7 +6,7 @@ var router = express.Router();
 const connect = require('./db_pool_connect');
 
 /**
- * Listar todos los usuarios
+ * Listar todos los clientes
  */
 router.get('/', function (req, res, next) {
   connect(function (err, client, done) {
@@ -15,21 +15,21 @@ router.get('/', function (req, res, next) {
     }
 
     //use the client for executing the query
-    client.query('SELECT * FROM usuario;', function (err, result) {
+    client.query('SELECT * FROM cliente;', function (err, result) {
       //call `done(err)` to release the client back to the pool (or destroy it if there is an error)
       done(err);
 
       if (err) {
         return console.error('error running query', err);
       }
-      res.send(JSON.stringify(result.rows));
+      res.status(200).json({error: false, "result":result.rows});
     });
   });
 
 })
 
 /**
- * Buscar un usuario dado su id_usuario
+ * Buscar un cliente dado su id
  */
 router.get('/:id', function (req, res, next) {
   connect(function (err, client, done) {
@@ -38,17 +38,16 @@ router.get('/:id', function (req, res, next) {
     }
 
     //use the client for executing the query
-    client.query(`SELECT * FROM usuario WHERE id_usuario=${req.params.id};`, function (err, result) {
+    client.query(`SELECT * FROM cliente WHERE id=${req.params.id};`, function (err, result) {
       //call `done(err)` to release the client back to the pool (or destroy it if there is an error)
       done(err);
 
       if (err) {
         return console.error('error running query', err);
       }
-      res.send(JSON.stringify(result.rows[0]));
+      res.status(200).json({error: false, "result":result.rows});
     });
   });
-
 })
 
 /**
@@ -65,29 +64,24 @@ router.post('/', function (req, res, next) {
     //usuario = client.query(`select nombre from cliente where nombre =  '${req.body.nombre_usuario}';`)
     //console.log(usuario)
 
-    const comprobarUsuario = async () => {
+    const crearCliente = async () => {
       emailUsuario = await client.query(`select email from cliente where email =  '${req.body.nombre_usuario}';`)
       if (emailUsuario.rows.length == 0){
-        client.query(`INSERT INTO  cliente(nombre,apellidos,email,numero_celular,fecha_nacimiento,direccion_residencia,recibo_servicio_publico) VALUES ('1','1','${req.body.nombre_usuario}', '${req.body.password}','2019-01-01','1','1');`, function (err, result) {
+        client.query(`INSERT INTO  cliente(nombre,apellidos,email,numero_celular,fecha_nacimiento,direccion_residencia,recibo_servicio_publico) VALUES ('${req.body.nombre}','${req.body.apellidos}','${req.body.email}', '${req.body.numero_celular}','${req.body.fecha_nacimiento}','${req.body.direccion_residencia}','${req.body.recibo_servicio_publico}');`, function (err, result) {
           //call `done(err)` to release the client back to the pool (or destroy it if there is an error)
           done(err);
           if (err) {
             return console.error('error running query', err);
           }
           res.status(201).json({error: false,informacion: "el cliente se ha creado exitosamente"});
-          //res.send(JSON.stringify(result));
         });
       }
       else {
         res.status(400).json({error: true,informacion: "el usuario ya existe, escoja otro por favor"});
       }
     }
-    comprobarUsuario().then();
-
-    /*
-    */
+    crearCliente().then();
   });
-
 })
 
 module.exports = router;

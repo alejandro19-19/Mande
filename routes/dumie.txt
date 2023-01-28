@@ -17,3 +17,14 @@ hay 2 ejemplos de lo que modificamos nosotros, uno esta en hello.js y el otro es
 en config.js debe colocar la informacion de su postgres y no olvide eliminar lo de host que es para el server
 
 NOTA CUANDO USE EL POSTMAN, DENTRO DEL BODY UTILIZE EL X-WWW-FORM-URLENCODED
+
+----------------------------------------------------------------------------
+
+descripcion urls:
+
+http://localhost:3000/cliente 
+sirve para el manejo de la creacion de los clientes
+http://localhost:3000/trabajador
+sirve para el manejo de la creacion de los trabajadores
+http://localhost:3000/registrar_servicio
+sirve para el manejo del registro del servicio de la parte de los trabajadores

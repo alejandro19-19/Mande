@@ -9,7 +9,11 @@ const indexRouter = require('./routes/index');
 const crearRouter = require('./routes/crear');
 
 const queryRouter = require('./routes/query');
-const usuarioRouter = require('./routes/usuario');
+const clienteRouter = require('./routes/cliente');
+const trabajadorRouter = require('./routes/trabajador');
+
+const rserivicioRouter = require('./routes/rservicio')
+const rpagoRouter = require('./routes/registrar_medio_pago')
 
 const app = express();
 
@@ -28,7 +32,11 @@ app.use('/', indexRouter);
 app.use('/crear', crearRouter);
 
 app.use('/ejecutar_query', queryRouter);
-app.use('/usuario', usuarioRouter);
+app.use('/cliente', clienteRouter);
+app.use('/trabajador', trabajadorRouter);
+
+app.use('/registrar_servicio', rserivicioRouter);
+app.use('/registrar_medio_pago', rpagoRouter);
 
 
 // catch 404 and forward to error handler
