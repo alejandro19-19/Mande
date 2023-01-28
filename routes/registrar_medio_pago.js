@@ -21,14 +21,15 @@ router.post('/', function (req, res, next) {
             }
             else{
                 numero = req.body.numero;
-                var hash = crypto.createHash("sha256").update(numero).digest('hex');
-
-                medio_pago = await client.query(`SELECT * FROM tarjeta WHERE numero= '${hash}' and id_cliente = '${req.body.id_cliente}' and tipo = '${req.body.tipo}';`)
+                hash_numero = crypto.createHash("sha256").update(numero).digest('hex');
+                
+                medio_pago = await client.query(`SELECT * FROM tarjeta WHERE numero= '${hash_numero}' and id_cliente = '${req.body.id_cliente}' and tipo = '${req.body.tipo}';`)
                 if (medio_pago.rows.length == 0){
                     //encriptando la informacion crucial
-
                     //use the client for executing the query
-                    client.query(`INSERT INTO tarjeta(numero, id_cliente, tipo, cvv,nombre_titular,fecha_vencimiento) VALUES ('${hash}','${req.body.id_cliente}','${req.body.tipo}','${req.body.cvv}','${req.body.nombre_titular}','${req.body.fecha_vencimiento}');`, function (err, result) {
+                    cvv = req.body.cvv
+                    hash_cvv = crypto.createHash("sha256").update(cvv).digest('hex');
+                    client.query(`INSERT INTO tarjeta(numero, id_cliente, tipo, cvv,nombre_titular,fecha_vencimiento) VALUES ('${hash_numero}','${req.body.id_cliente}','${req.body.tipo}','${hash_cvv}','${req.body.nombre_titular}','${req.body.fecha_vencimiento}');`, function (err, result) {
                     //call `done(err)` to release the client back to the pool (or destroy it if there is an error)
                     done(err);
         
