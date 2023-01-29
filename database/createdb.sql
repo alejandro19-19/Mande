@@ -106,6 +106,19 @@ SELECT R1.id contratacion_id, R1.id_cliente, R1.id_trabajador,R1.id_servicio,R1.
 FROM servicio s RIGHT JOIN (SELECT cion.id,cion.id_cliente,cion.id_trabajador, cion.id_servicio, cion.descripcion_trabajo,cl.nombre, cl.apellidos, cl.direccion_residencia  
 FROM contratacion cion LEFT JOIN cliente cl ON cion.id_cliente = cl.id) AS R1 ON s.id = R1.id_servicio ORDER BY R1.id ASC;
 
- /* Consultas para procedimientos */ 
+ /* Esta vista almacena todos los servicios para los cuales hay trabajadores registrados */ 
 CREATE VIEW labores_ofertadas AS
 SELECT DISTINCT id_servicio, tipo tipo_servicio FROM prestar_servicio ps LEFT JOIN servicio s ON ps.id_servicio = s.id ORDER BY id_servicio ASC;
+
+/* Procedimientos alemacenados*/
+CREATE FUNCTION cambiar_disponibilidad() RETURNS TRIGGER AS $$
+BEGIN
+UPDATE trabajador SET disponible = false WHERE id = NEW.id_trabajador;
+RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+/* Triggers */
+CREATE TRIGGER untrigger_AI AFTER INSERT ON contratacion 
+FOR EACH ROW
+EXECUTE PROCEDURE cambiar_disponibilidad();
