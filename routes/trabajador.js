@@ -84,4 +84,23 @@ router.post('/', function (req, res, next) {
   });
 })
 
+router.put('/', function (req, res, next) {
+  connect(function (err, client, done) {
+    if (err) {
+      return console.error('error fetching client from pool', err);
+    }
+
+    //use the client for executing the query
+    client.query(`UPDATE trabajador SET disponible ='${req.body.disponible}' WHERE id ='${req.body.id_trabajador}';`, function (err, result) {
+      //call `done(err)` to release the client back to the pool (or destroy it if there is an error)
+      done(err);
+
+      if (err) {
+        return console.error('error running query', err);
+      }
+      res.status(200).json({error: false, "informacion":"el estado del trabajador se ha actualizado exitosamente"});
+    });
+  });
+})
+
 module.exports = router;
