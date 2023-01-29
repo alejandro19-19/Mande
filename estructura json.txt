@@ -71,6 +71,22 @@ obtienes este
     "informacion": "el trabajador se ha creado exitosamente"
 }
 
+http://localhost:3000/trabajador     put
+ingresas este json
+
+{
+
+    "id_trabajador": 4,
+    "disponible": false
+}
+
+obtienes esto
+
+{
+    "error": false,
+    "informacion": "el estado del trabajador se ha actualizado exitosamente"
+}
+
 http://localhost:3000/cliente/    get
 
 {
@@ -262,3 +278,35 @@ obtenes
         }
     ]
 }
+
+http://localhost:3000/trabajadores_disponibles con GET
+
+ingresas esto
+
+{
+
+    "id_servicio": 5
+
+
+}
+
+obtienes esto (lista ordenada de los trabajadores)
+
+{
+    "error": false,
+    "result": [
+        {
+            "nombre": "alejandro",
+            "apellidos": "escobar",
+            "email": "alejandro@gmail.com",
+            "direccion_residencia": "calle 5 prueba",
+            "foto_perfil": "foto",
+            "id_trabajador": 1,
+            "id_servicio": 5,
+            "calificacion": 5,
+            "valor_fraccion": 100000
+        }
+
+    ]
+}
+
