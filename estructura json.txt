@@ -71,6 +71,22 @@ obtienes este
     "informacion": "el trabajador se ha creado exitosamente"
 }
 
+http://localhost:3000/trabajador     put
+ingresas este json
+
+{
+
+    "id_trabajador": 4,
+    "disponible": false
+}
+
+obtienes esto
+
+{
+    "error": false,
+    "informacion": "el estado del trabajador se ha actualizado exitosamente"
+}
+
 http://localhost:3000/cliente/    get
 
 {
@@ -214,3 +230,83 @@ obtenes esto
         "calificacion_servicio": null
     }
 }
+---------------------------------------------------------------------------------------------------------------------------------------------
+http://localhost:3000/listar_labores se usa con GET
+
+mandas nada
+
+obtenes
+
+{
+    "error": false,
+    "labores": [
+        {
+            "id_servicio": 1,
+            "tipo_servicio": "paseador de perros"
+        },
+        {
+            "id_servicio": 3,
+            "tipo_servicio": "electricista"
+        },
+        {
+            "id_servicio": 5,
+            "tipo_servicio": "pintor"
+        },
+        {
+            "id_servicio": 6,
+            "tipo_servicio": "profesor de ingles"
+        }
+    ]
+}
+---------------------------------------------------------------------------------------------------------------------------------------------
+http://localhost:3000/notificacion/id   es el id de la contratacion de la cual queres la informacion para la notificacion, se usa con POST
+
+mandas nada 
+
+
+obtenes 
+
+{
+    "error": false,
+    "informacion": [
+        {
+            "tipo_servicio": "plomero",
+            "descripcion_trabajo": "prueba man",
+            "nombre_cliente": "miguel",
+            "apellidos_cliente": "fernandez",
+            "direccion_cliente": "calle 4 prueba"
+        }
+    ]
+}
+
+http://localhost:3000/trabajadores_disponibles con GET
+
+ingresas esto
+
+{
+
+    "id_servicio": 5
+
+
+}
+
+obtienes esto (lista ordenada de los trabajadores)
+
+{
+    "error": false,
+    "result": [
+        {
+            "nombre": "alejandro",
+            "apellidos": "escobar",
+            "email": "alejandro@gmail.com",
+            "direccion_residencia": "calle 5 prueba",
+            "foto_perfil": "foto",
+            "id_trabajador": 1,
+            "id_servicio": 5,
+            "calificacion": 5,
+            "valor_fraccion": 100000
+        }
+
+    ]
+}
+
