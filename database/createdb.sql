@@ -111,14 +111,35 @@ CREATE VIEW labores_ofertadas AS
 SELECT DISTINCT id_servicio, tipo tipo_servicio FROM prestar_servicio ps LEFT JOIN servicio s ON ps.id_servicio = s.id ORDER BY id_servicio ASC;
 
 /* Procedimientos alemacenados*/
-CREATE FUNCTION cambiar_disponibilidad() RETURNS TRIGGER AS $$
+
+--Esta funcion sirve para cambiar la disponibilidad de un trabajdor una vez es contratado por un cliente
+CREATE OR REPLACE FUNCTION cambiar_disponibilidad() RETURNS TRIGGER AS $$
 BEGIN
 UPDATE trabajador SET disponible = false WHERE id = NEW.id_trabajador;
 RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
+-- Esta funcion sirve para asignarle la calificacion promedio a los trbajadores de manera automatica una vez el cliente califica el servicio
+CREATE OR REPLACE FUNCTION actualizar_calificacion() RETURNS TRIGGER AS $$
+DECLARE
+calificacionQ FLOAT;
+BEGIN
+calificacionQ := (SELECT AVG(ct.calificacion_servicio) FROM contratacion ct WHERE ct.id_trabajador = OLD.id_trabajador and ct.id_servicio = OLD.id_servicio);
+UPDATE prestar_servicio ps SET calificacion = calificacionQ
+WHERE ps.id_trabajador = OLD.id_trabajador AND ps.id_servicio = OLD.id_servicio;
+RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+
 /* Triggers */
-CREATE TRIGGER untrigger_AI AFTER INSERT ON contratacion 
+--Este trigger se activa despues de que se realiza un insert en la tabla contratacion
+CREATE TRIGGER TG_cambiar_disponibilidad_AI AFTER INSERT ON contratacion 
 FOR EACH ROW
 EXECUTE PROCEDURE cambiar_disponibilidad();
+
+--Este trigger se activa despues de que se de una actualizacion en la tabla contratacion
+CREATE TRIGGER TG_actualiza_calificacion_AU AFTER UPDATE ON contratacion
+FOR EACH ROW
+EXECUTE PROCEDURE actualizar_calificacion();
