@@ -17,11 +17,12 @@ const trabajadorRouter = require('./routes/trabajador');
 const rserivicioRouter = require('./routes/rservicio')
 const rpagoRouter = require('./routes/registrar_medio_pago')
 const contratacionRouter = require('./routes/contratacion')
-const tdisponibles = require('./routes/trabajadores_disponibles')
+const tdisponiblesRouter = require('./routes/trabajadores_disponibles')
 const laborsRouter = require('./routes/labores')
 const notificacionRouter = require('./routes/notificacion')
-const cpromedio = require('./routes/calificacion_promedio')
-const login = require('./routes/login')
+//const cpromedio = require('./routes/calificacion_promedio') CONSIDERAR SU ELIMINACION
+const loginRouter = require('./routes/login')
+const pagosRouter = require('./routes/pagos')
 
 const app = express();
 // view engine setup
@@ -36,7 +37,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use('/login', login);
+app.use('/login', loginRouter);
 app.use('/hello', helloRouter);
 app.use('/', indexRouter);
 app.use('/crear', crearRouter);
@@ -48,10 +49,11 @@ app.use('/trabajador', trabajadorRouter);
 app.use('/registrar_servicio', rserivicioRouter);
 app.use('/registrar_medio_pago', rpagoRouter);
 app.use('/contratacion', contratacionRouter);
-app.use('/trabajadores_disponibles', tdisponibles);
+app.use('/trabajadores_disponibles', tdisponiblesRouter);
 app.use('/listar_labores', laborsRouter);
-app.use('/notificacion',notificacionRouter)
-app.use('/calificacion_promedio',cpromedio)
+app.use('/notificacion', notificacionRouter)
+//app.use('/calificacion_promedio',cpromedio)  CONSIDERAR SU ELIMINACION
+app.use('/registrar_pago', pagosRouter)
 
 
 
