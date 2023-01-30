@@ -310,3 +310,53 @@ obtienes esto (lista ordenada de los trabajadores)
     ]
 }
 
+
+http://localhost:3000/calificacion_promedio con GET
+
+
+ingresas este json
+
+{
+            "id_trabajador": 1,
+            "id_servicio": 1
+}
+
+obtienes este
+{
+    "avg": 4.00000
+}
+http://localhost:3000/calificacion_promedio con post
+
+ingresas este json
+
+{
+	    "calificacion": 5,
+            "id_trabajador": 1,
+            "id_servicio": 1
+}
+obtienes este
+
+{
+    "error": false,
+    "informacion": "la calificacion del trabajador se ha actualizado exitosamente"
+
+    ]
+}
+
+http://localhost:3000/login con get
+
+ingresas este json (los tipos son cliente y trabajador)
+{
+
+    "tipo" : "cliente",
+    "email":"miguel@gmail.com",
+    "numero_celular":"1234"
+
+}
+
+obtienes este
+
+{
+    "error": false,
+    "informacion": "se ha logueado exitosamente"
+}
