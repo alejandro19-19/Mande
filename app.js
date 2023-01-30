@@ -20,6 +20,8 @@ const contratacionRouter = require('./routes/contratacion')
 const tdisponibles = require('./routes/trabajadores_disponibles')
 const laborsRouter = require('./routes/labores')
 const notificacionRouter = require('./routes/notificacion')
+const cpromedio = require('./routes/calificacion_promedio')
+const login = require('./routes/login')
 
 const app = express();
 // view engine setup
@@ -33,6 +35,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+app.use('/login', login);
 app.use('/hello', helloRouter);
 app.use('/', indexRouter);
 app.use('/crear', crearRouter);
@@ -47,6 +51,8 @@ app.use('/contratacion', contratacionRouter);
 app.use('/trabajadores_disponibles', tdisponibles);
 app.use('/listar_labores', laborsRouter);
 app.use('/notificacion',notificacionRouter)
+app.use('/calificacion_promedio',cpromedio)
+
 
 
 // catch 404 and forward to error handler
