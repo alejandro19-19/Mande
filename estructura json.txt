@@ -360,3 +360,21 @@ obtienes este
     "error": false,
     "informacion": "se ha logueado exitosamente"
 }
+-----------------------------------------------------------------------------------------------------------------------------
+http://localhost:3000/registrar_pago se usa con POST
+
+SE MANDA
+
+{
+    "id_cliente":2,
+    "numero_tarjeta":"123456789",
+    "id_trabajador":2,
+    "valor_pago":50000
+}
+
+OBTENES
+
+{
+    "error": true,
+    "informacion": "El numero de tarjeta ingresado no esta registrado como metodo de pago de este cliente"
+}
