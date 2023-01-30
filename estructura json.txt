@@ -60,6 +60,8 @@ ingresas este json
     "numero_celular": "1234",
     "fecha_nacimiento": "2019-01-01T05:00:00.000Z",
     "direccion_residencia": "calle 6 prueba",
+    "direccion_latitud": 19.416326917410476,
+    "direccion_longitud": -99.12479042256915,
     "documento_identidad": "direcciondeldocumento",
     "foto_perfil": "foto"
 }
@@ -144,6 +146,8 @@ ingresas este json
     "numero_celular": "1234",
     "fecha_nacimiento": "2019-01-01T05:00:00.000Z",
     "direccion_residencia": "calle 6 prueba",
+    "direccion_latitud": 19.416326917410476,
+    "direccion_longitud": -99.12479042256915,
     "documento_identidad": "direcciondeldocumento",
     "recibo_servicio_publico": "servicio"
 }
