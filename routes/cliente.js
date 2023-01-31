@@ -1,6 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser')
 
+var upload = require('./storage')
+
 var router = express.Router();
 
 const connect = require('./db_pool_connect');
@@ -54,7 +56,7 @@ router.get('/:id', function (req, res, next) {
  * Crear un usuario dados su nombre de usuario y password. 
  * !Antes de crearlo debería verificar si ya existe.
  */
-router.post('/', function (req, res, next) {
+router.post('/',upload.single('recibo_servicio_publico'), function (req, res, next) {
   connect(function (err, client, done) {
     if (err) {
       return console.error('error fetching client from pool', err);
@@ -65,9 +67,9 @@ router.post('/', function (req, res, next) {
     //console.log(usuario)
 
     const crearCliente = async () => {
-      emailUsuario = await client.query(`select email from cliente where email =  '${req.body.nombre_usuario}';`)
+      emailUsuario = await client.query(`select email from cliente where email =  '${req.body.email}';`)
       if (emailUsuario.rows.length == 0){
-        client.query(`INSERT INTO  cliente(nombre,apellidos,email,numero_celular,fecha_nacimiento,direccion_residencia,recibo_servicio_publico) VALUES ('${req.body.nombre}','${req.body.apellidos}','${req.body.email}', '${req.body.numero_celular}','${req.body.fecha_nacimiento}','${req.body.direccion_residencia}','${req.body.recibo_servicio_publico}');`, function (err, result) {
+        client.query(`INSERT INTO  cliente(nombre,apellidos,email,numero_celular,fecha_nacimiento,direccion_residencia,direccion_latitud,direccion_longitud,recibo_servicio_publico) VALUES ('${req.body.nombre}','${req.body.apellidos}','${req.body.email}', '${req.body.numero_celular}','${req.body.fecha_nacimiento}','${req.body.direccion_residencia}','${req.body.direccion_latitud}','${req.body.direccion_latitud}','${req.file.path}');`, function (err, result) {
           //call `done(err)` to release the client back to the pool (or destroy it if there is an error)
           done(err);
           if (err) {
