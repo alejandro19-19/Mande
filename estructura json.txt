@@ -361,3 +361,22 @@ OBTENES
     "error": true,
     "informacion": "El numero de tarjeta ingresado no esta registrado como metodo de pago de este cliente"
 }
+
+http://localhost:3000/registrar_servicio     se usa con POST
+
+se manda este json
+
+{
+
+    "id_servicio":1,
+    "id_trabajador": 2,
+    "valor_fraccion": 1234
+}
+
+se obtiene este
+
+{
+    "error": false,
+    "informacion": "el servicio se ha sido registrado exitosamente para el usuario trabajador"
+}
+
