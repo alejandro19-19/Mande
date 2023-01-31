@@ -33,14 +33,14 @@ router.post('/', function (req, res, next){
   });
 })
 
-router.get('/', function (req, res, next) {
+router.get('/:id_cliente/:id_trabajador/:id_servicio', function (req, res, next) {
   connect(function (err, client, done) {
     if (err) {
       return console.error('error fetching client from pool', err);
     }
     const devolverinfo = async () => {
-      client.query(`SELECT * FROM contratacion WHERE id_cliente = ${req.body.id_cliente} 
-        AND id_trabajador = ${req.body.id_trabajador} AND id_servicio = ${req.body.id_servicio} ORDER BY id DESC`, 
+      client.query(`SELECT * FROM contratacion WHERE id_cliente = ${req.params.id_cliente} 
+        AND id_trabajador = ${req.params.id_trabajador} AND id_servicio = ${req.params.id_servicio} ORDER BY id DESC`, 
         function(err,result){
           done(err);
           if (err) {

@@ -5,7 +5,7 @@ var router = express.Router();
 const connect = require('./db_pool_connect');
 
 
-router.get('/', function (req, res, next) {
+router.post('/', function (req, res, next) {
   connect(function (err, client, done) {
     if (err) {
       return console.error('error fetching client from pool', err);

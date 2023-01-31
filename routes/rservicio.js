@@ -12,7 +12,7 @@ router.post('/', function (req, res, next){
     const registrarServicio = async () => {
       comprobacion = await client.query(`SELECT * FROM prestar_servicio WHERE id_servicio = '${req.body.id_servicio}' AND id_trabajador = '${req.body.id_trabajador}' ;`)
       if (comprobacion.rows.length == 0){
-        client.query(`INSERT INTO prestar_servicio (id_trabajador, id_servicio, calificacion, valor_fraccion) VALUES ('${req.body.id_trabajador}','${req.body.id_servicio}','${req.body.calificacion}','${req.body.valor_fraccion}');`, function(err,result){
+        client.query(`INSERT INTO prestar_servicio (id_trabajador, id_servicio, valor_fraccion) VALUES ('${req.body.id_trabajador}','${req.body.id_servicio}','${req.body.valor_fraccion}');`, function(err,result){
           done(err);
           if (err) {
             return console.error('error running query', err);
