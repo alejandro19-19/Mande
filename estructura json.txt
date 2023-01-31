@@ -60,6 +60,8 @@ ingresas este json
     "numero_celular": "1234",
     "fecha_nacimiento": "2019-01-01T05:00:00.000Z",
     "direccion_residencia": "calle 6 prueba",
+    "direccion_latitud": 19.416326917410476,
+    "direccion_longitud": -99.12479042256915,
     "documento_identidad": "direcciondeldocumento",
     "foto_perfil": "foto"
 }
@@ -144,6 +146,8 @@ ingresas este json
     "numero_celular": "1234",
     "fecha_nacimiento": "2019-01-01T05:00:00.000Z",
     "direccion_residencia": "calle 6 prueba",
+    "direccion_latitud": 19.416326917410476,
+    "direccion_longitud": -99.12479042256915,
     "documento_identidad": "direcciondeldocumento",
     "recibo_servicio_publico": "servicio"
 }
@@ -206,18 +210,7 @@ obtenes esto
 }
 
 -----------------------------------------------------------------------------------------------------------------------------------
-http://localhost:3000/contratacion con GET
-
-mandas esto 
-
-{
-	"id_cliente":2,
-	"id_trabajador":1,
-	"id_servicio":2
- 
-}
-
-obtenes esto
+http://localhost:3000/contratacion/2/1/2 con GET (en orden id_cliente,id_trabajador,id_servicio)
 
 {
     "error": false,
@@ -279,18 +272,8 @@ obtenes
     ]
 }
 
-http://localhost:3000/trabajadores_disponibles con GET
+http://localhost:3000/trabajadores_disponibles/5 con GET (el id que se le ingresa es el id_servicio)
 
-ingresas esto
-
-{
-
-    "id_servicio": 5
-
-
-}
-
-obtienes esto (lista ordenada de los trabajadores)
 
 {
     "error": false,
@@ -311,7 +294,7 @@ obtienes esto (lista ordenada de los trabajadores)
 }
 
 
-http://localhost:3000/calificacion_promedio con GET
+http://localhost:3000/calificacion_promedio con GET  /////esta url no se utiliza ya
 
 
 ingresas este json
@@ -325,7 +308,7 @@ obtienes este
 {
     "avg": 4.00000
 }
-http://localhost:3000/calificacion_promedio con post
+http://localhost:3000/calificacion_promedio con post  /////esta url no se utiliza ya
 
 ingresas este json
 
@@ -343,7 +326,7 @@ obtienes este
     ]
 }
 
-http://localhost:3000/login con get
+http://localhost:3000/login con post
 
 ingresas este json (los tipos son cliente y trabajador)
 {
@@ -378,3 +361,22 @@ OBTENES
     "error": true,
     "informacion": "El numero de tarjeta ingresado no esta registrado como metodo de pago de este cliente"
 }
+
+http://localhost:3000/registrar_servicio     se usa con POST
+
+se manda este json
+
+{
+
+    "id_servicio":1,
+    "id_trabajador": 2,
+    "valor_fraccion": 1234
+}
+
+se obtiene este
+
+{
+    "error": false,
+    "informacion": "el servicio se ha sido registrado exitosamente para el usuario trabajador"
+}
+
