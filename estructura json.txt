@@ -283,18 +283,8 @@ obtenes
     ]
 }
 
-http://localhost:3000/trabajadores_disponibles con GET
+http://localhost:3000/trabajadores_disponibles/5 con GET
 
-ingresas esto
-
-{
-
-    "id_servicio": 5
-
-
-}
-
-obtienes esto (lista ordenada de los trabajadores)
 
 {
     "error": false,
