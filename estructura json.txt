@@ -210,18 +210,7 @@ obtenes esto
 }
 
 -----------------------------------------------------------------------------------------------------------------------------------
-http://localhost:3000/contratacion con GET
-
-mandas esto 
-
-{
-	"id_cliente":2,
-	"id_trabajador":1,
-	"id_servicio":2
- 
-}
-
-obtenes esto
+http://localhost:3000/contratacion/2/1/2 con GET (en orden id_cliente,id_trabajador,id_servicio)
 
 {
     "error": false,
@@ -283,7 +272,7 @@ obtenes
     ]
 }
 
-http://localhost:3000/trabajadores_disponibles/5 con GET
+http://localhost:3000/trabajadores_disponibles/5 con GET (el id que se le ingresa es el id_servicio)
 
 
 {
@@ -305,7 +294,7 @@ http://localhost:3000/trabajadores_disponibles/5 con GET
 }
 
 
-http://localhost:3000/calificacion_promedio con GET
+http://localhost:3000/calificacion_promedio con GET  /////esta url no se utiliza ya
 
 
 ingresas este json
@@ -319,7 +308,7 @@ obtienes este
 {
     "avg": 4.00000
 }
-http://localhost:3000/calificacion_promedio con post
+http://localhost:3000/calificacion_promedio con post  /////esta url no se utiliza ya
 
 ingresas este json
 
@@ -337,7 +326,7 @@ obtienes este
     ]
 }
 
-http://localhost:3000/login con get
+http://localhost:3000/login con post
 
 ingresas este json (los tipos son cliente y trabajador)
 {
