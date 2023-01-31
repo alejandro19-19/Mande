@@ -74,7 +74,7 @@ router.post('/',upload.fields([{ name: 'foto_perfil', maxCount: 1 }, { name: 'do
         path_documento_identidad= req.files["documento_identidad"][0].path
         //new_path_foto_perfil = path_foto_perfil.replace("\","/");
         
-        client.query(`INSERT INTO  trabajador(nombre,apellidos,email,numero_celular,fecha_nacimiento,direccion_residencia,direccion_latitud,direccion_longitud,documento_identidad,foto_perfil) VALUES ('${req.body.nombre}','${req.body.apellidos}','${req.body.email}', '${req.body.numero_celular}','${req.body.fecha_nacimiento}','${req.body.direccion_residencia}','${req.body.direccion_latitud}','${req.body.direccion_longitud}','${path_foto_perfil}','${path_documento_identidad}');`, function (err, result) {
+        client.query(`INSERT INTO  trabajador(nombre,apellidos,email,numero_celular,fecha_nacimiento,direccion_residencia,direccion_latitud,direccion_longitud,documento_identidad,foto_perfil) VALUES ('${req.body.nombre}','${req.body.apellidos}','${req.body.email}', '${req.body.numero_celular}','${req.body.fecha_nacimiento}','${req.body.direccion_residencia}','${req.body.direccion_latitud}','${req.body.direccion_longitud}','${path_documento_identidad}','${path_foto_perfil}');`, function (err, result) {
           //call `done(err)` to release the client back to the pool (or destroy it if there is an error)
           done(err);
           if (err) {
