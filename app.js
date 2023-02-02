@@ -5,11 +5,6 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const logger = require('morgan');
 
-
-const helloRouter = require('./routes/hello');
-const indexRouter = require('./routes/index');
-const crearRouter = require('./routes/crear');
-
 const queryRouter = require('./routes/query');
 const clienteRouter = require('./routes/cliente');
 const trabajadorRouter = require('./routes/trabajador');
