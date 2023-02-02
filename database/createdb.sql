@@ -10,6 +10,7 @@ CREATE DATABASE mande_db
 
 \c mande_db
 
+/* Creacion de la tabla cliente */
 CREATE TABLE cliente (
     id SERIAL PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
@@ -23,6 +24,7 @@ CREATE TABLE cliente (
     recibo_servicio_publico VARCHAR(300) NOT NULL
 );
 
+/* Creacion de la tabla trabajador */
 CREATE TABLE trabajador (
     id SERIAL PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
@@ -38,11 +40,13 @@ CREATE TABLE trabajador (
     foto_perfil VARCHAR(300) NOT NULL
 );
 
+/* Creacion de la tabla servicio */
 CREATE TABLE servicio (
     id SERIAL PRIMARY KEY,
     tipo VARCHAR(100) NOT NULL
 );
 
+/* Creacion de la tabla tarjeta */
 CREATE TABLE tarjeta (
     id SERIAL,
     numero VARCHAR(300),
@@ -56,6 +60,7 @@ CREATE TABLE tarjeta (
         FOREIGN KEY (id_cliente) REFERENCES cliente(id)
 );
 
+/* Creacion de la tabla pago */
 CREATE TABLE pago (
     id SERIAL PRIMARY KEY,
     id_cliente INT NOT NULL,
@@ -71,6 +76,7 @@ CREATE TABLE pago (
         FOREIGN KEY (id_trabajador) REFERENCES trabajador(id) ON UPDATE CASCADE ON DELETE SET NULL
 );
 
+/* Creacion de la tabla contratacion */
 CREATE TABLE contratacion(
     id SERIAL,
     id_cliente INT,
@@ -87,7 +93,7 @@ CREATE TABLE contratacion(
         FOREIGN KEY (id_servicio) REFERENCES servicio(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-
+/* Creacion de la tabla prestar_servicio */
 CREATE TABLE prestar_servicio (
     id_trabajador INT,
     id_servicio INT,
@@ -136,13 +142,14 @@ RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
+
 /* Triggers */
---Este trigger se activa despues de que se realiza un insert en la tabla contratacion
+--Este trigger se activa despues de que se realiza una insercion de registros en la tabla contratacion
 CREATE TRIGGER TG_cambiar_disponibilidad_AI AFTER INSERT ON contratacion 
 FOR EACH ROW
 EXECUTE PROCEDURE cambiar_disponibilidad();
 
---Este trigger se activa despues de que se de una actualizacion en la tabla contratacion
+--Este trigger se activa despues de que se de una actualizacion de registros en la tabla contratacion
 CREATE TRIGGER TG_actualiza_calificacion_AU AFTER UPDATE ON contratacion
 FOR EACH ROW
 EXECUTE PROCEDURE actualizar_calificacion();
