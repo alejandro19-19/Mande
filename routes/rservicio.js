@@ -27,7 +27,7 @@ router.post('/', function (req, res, next) {
   });
 })
 
-/* PARA DESVINCULAR UN SERVICIO PARA UN TRABAJADOR TODAVIA EN DUDA DE SI HACERLO ASI (PUEDE MODIFICARSE) */
+/* PARA DESVINCULAR UN SERVICIO PARA UN TRABAJADOR */
 router.delete('/', function (req, res, next) {
   connect(function (err, client, done) {
     if (err) {
