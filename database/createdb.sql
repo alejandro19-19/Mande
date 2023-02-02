@@ -1,3 +1,4 @@
+/* Creacion de la base de datos */
 CREATE DATABASE mande_db
     WITH 
     OWNER = postgres
