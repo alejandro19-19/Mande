@@ -13,7 +13,7 @@ router.post('/', function (req, res, next) {
 
     if (req.body.tipo == "cliente") {
       const verificarCliente = async () => {
-        cliente = await client.query(`SELECT email, numero_celular FROM cliente where email = '${req.body.email}' and numero_celular = '${req.body.numero_celular}';`)
+        cliente = await client.query(`SELECT email, numero_celular FROM cliente WHERE email = '${req.body.email}' and numero_celular = '${req.body.numero_celular}';`)
         if (cliente.rows.length == 0) {
           res.status(401).json({ error: true, informacion: "el usuario no existe" });
         }
@@ -25,7 +25,7 @@ router.post('/', function (req, res, next) {
     }
     else if (req.body.tipo == "trabajador") {
       const verificarTrabajador = async () => {
-        cliente = await client.query(`SELECT email, numero_celular FROM trabajador where email = '${req.body.email}' and numero_celular = '${req.body.numero_celular}';`)
+        cliente = await client.query(`SELECT email, numero_celular FROM trabajador WHERE email = '${req.body.email}' and numero_celular = '${req.body.numero_celular}';`)
         if (cliente.rows.length == 0) {
           res.status(401).json({ error: true, informacion: "el usuario no existe" });
         }

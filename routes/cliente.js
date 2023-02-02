@@ -5,7 +5,7 @@ var router = express.Router();
 
 const connect = require('./db_pool_connect');
 
-var fs =  require('fs');
+var fs = require('fs');
 
 /**
  * Obtener un cliente dado su correo
@@ -17,7 +17,6 @@ router.post('/obtener', function (req, res, next) {
     }
 
     //use the client for executing the query
-    console.log(req.body.email)
     client.query(`SELECT * FROM cliente WHERE email='${req.body.email}';`, function (err, result) {
       //call `done(err)` to release the client back to the pool (or destroy it if there is an error)
       done(err);
@@ -25,7 +24,7 @@ router.post('/obtener', function (req, res, next) {
       if (err) {
         return console.error('error running query', err);
       }
-      res.status(200).json({error: false, "result":result.rows});
+      res.status(200).json({ error: false, "result": result.rows });
     });
   });
 })
@@ -38,24 +37,20 @@ router.post('/obtener', function (req, res, next) {
 router.post('/', function (req, res, next) {
 
   connect(function (err, client, done) {
-  
+
     if (err) {
       return console.error('error fetching client from pool', err);
     }
-  
-    //use the client for executing the query
-    //usuario = client.query(`select nombre from cliente where nombre =  '${req.body.nombre_usuario}';`)
-    //console.log(usuario)
 
     const crearCliente = async () => {
-      emailUsuario = await client.query(`select email from cliente where email =  '${req.body.email}';`)
-      if (emailUsuario.rows.length == 0){
+      emailUsuario = await client.query(`SELECT email FROM cliente WHERE email =  '${req.body.email}';`)
+      if (emailUsuario.rows.length == 0) {
 
         auxiliar = req.body.recibo_servicio_publico //este auxiliar permite eliminar la cabecera
         auxiliar1 = auxiliar.split(',');           //la cual indica que es un dato en base 64
         auxiliar2 = auxiliar1.pop()
         buff = new Buffer.from(auxiliar2, 'base64');
-        nombre_completo= req.body.nombre + "-" + req.body.apellidos;
+        nombre_completo = req.body.nombre + "-" + req.body.apellidos;
         url = `./storage/recibo_servicio_publico/recibo_${nombre_completo}.png`;
         fs.writeFileSync(url, buff);
 
@@ -65,11 +60,11 @@ router.post('/', function (req, res, next) {
           if (err) {
             return console.error('error running query', err);
           }
-          res.status(201).json({error: false,informacion: "el cliente se ha creado exitosamente"});
+          res.status(201).json({ error: false, informacion: "el cliente se ha creado exitosamente" });
         });
       }
       else {
-        res.status(400).json({error: true,informacion: "el usuario ya existe, escoja otro por favor"});
+        res.status(400).json({ error: true, informacion: "el usuario ya existe, escoja otro por favor" });
       }
     }
     crearCliente().then();

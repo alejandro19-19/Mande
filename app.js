@@ -46,9 +46,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors(corsOptions));
 
 app.use('/login', loginRouter);
-app.use('/hello', helloRouter);
-app.use('/', indexRouter);
-app.use('/crear', crearRouter);
 
 app.use('/ejecutar_query', queryRouter);
 app.use('/cliente', clienteRouter);
@@ -60,7 +57,6 @@ app.use('/contratacion', contratacionRouter);
 app.use('/trabajadores_disponibles', tdisponiblesRouter);
 app.use('/listar_labores', laborsRouter);
 app.use('/notificacion', notificacionRouter)
-//app.use('/calificacion_promedio',cpromedio)  CONSIDERAR SU ELIMINACION
 app.use('/registrar_pago', pagosRouter)
 
 
