@@ -7,40 +7,18 @@ const connect = require('./db_pool_connect');
 
 var fs =  require('fs');
 
+
 /**
- * Listar todos los trabajadores
+ * Obtener un trabajador dado su correo
  */
-router.get('/', function (req, res, next) {
+router.post('/obtener', function (req, res, next) {
   connect(function (err, client, done) {
     if (err) {
       return console.error('error fetching client from pool', err);
     }
 
     //use the client for executing the query
-    client.query('SELECT * FROM trabajador;', function (err, result) {
-      //call `done(err)` to release the client back to the pool (or destroy it if there is an error)
-      done(err);
-
-      if (err) {
-        return console.error('error running query', err);
-      }
-      res.status(200).json({error: false, "result":result.rows});
-    });
-  });
-
-})
-
-/**
- * Buscar un trabajador dado su id
- */
-router.get('/:id', function (req, res, next) {
-  connect(function (err, client, done) {
-    if (err) {
-      return console.error('error fetching client from pool', err);
-    }
-
-    //use the client for executing the query
-    client.query(`SELECT * FROM trabajador WHERE id=${req.params.id};`, function (err, result) {
+    client.query(`SELECT * FROM trabajador WHERE email='${req.body.email}';`, function (err, result) {
       //call `done(err)` to release the client back to the pool (or destroy it if there is an error)
       done(err);
 
