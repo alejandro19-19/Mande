@@ -1,5 +1,13 @@
 
-http://localhost:3000/trabajador/1/   get
+http://localhost:3000/trabajador/obtener   post
+
+le ingresas este json
+
+{
+	"email": "correo@correo.com"
+}
+
+obtienes esto
 
 {
     "error": false,
@@ -21,40 +29,6 @@ http://localhost:3000/trabajador/1/   get
     ]
 }
 
-http://localhost:3000/trabajador      get
-{
-    "error": false,
-    "result": [
-        {
-            "id": 1,
-            "nombre": "alejandro",
-            "apellidos": "escobar",
-            "email": "alejandro@gmail.com",
-            "numero_celular": "1234",
-            "fecha_nacimiento": "2019-01-01T05:00:00.000Z",
-            "direccion_residencia": "calle 5 prueba",
-	    "direccion_latitud": 19.416326917410476,
-    	    "direccion_longitud": -99.12479042256915,
-            "disponible": true,
-            "documento_identidad": "direcciondeldocumento",
-            "foto_perfil": "foto"
-        },
-        {
-            "id": 2,
-            "nombre": "alejandro",
-            "apellidos": "peñaranda",
-            "email": "peñaranda@gmail.com",
-            "numero_celular": "1234",
-            "fecha_nacimiento": "2019-01-01T05:00:00.000Z",
-            "direccion_residencia": "calle 4 prueba",
-	    "direccion_latitud": 19.416326917410476,
-    	    "direccion_longitud": -99.12479042256915,
-            "disponible": true,
-            "documento_identidad": "direcciondeldocumento",
-            "foto_perfil": "foto"
-        },
-    ]
-}
 http://localhost:3000/trabajador/    post
 
 ingresas este json
@@ -95,7 +69,14 @@ obtienes esto
     "informacion": "el estado del trabajador se ha actualizado exitosamente"
 }
 
-http://localhost:3000/cliente/    get
+http://localhost:3000/cliente/obtener    post
+
+le ingresas este json
+
+{
+	"email":"elCorreo@gmail.com"
+}
+obtienes esto
 
 {
     "error": false,
@@ -123,26 +104,6 @@ http://localhost:3000/cliente/    get
 	    "direccion_latitud": 19.416326917410476,
     	    "direccion_longitud": -99.12479042256915,
             "recibo_servicio_publico": "elrecibo"
-        }
-    ]
-}
-
-http://localhost:3000/cliente/1/    get
-
-{
-    "error": false,
-    "result": [
-        {
-            "id": 1,
-            "nombre": "juan",
-            "apellidos": "santa",
-            "email": "juan@gmail.com",
-            "numero_celular": "1234",
-            "fecha_nacimiento": "2019-01-01T05:00:00.000Z",
-            "direccion_residencia": "calle 5 prueba",
-	    "direccion_latitud": 19.416326917410476,
-    	    "direccion_longitud": -99.12479042256915,
-            "recibo_servicio_publico": "recibo"
         }
     ]
 }
