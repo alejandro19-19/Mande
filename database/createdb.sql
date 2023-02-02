@@ -153,3 +153,13 @@ EXECUTE PROCEDURE cambiar_disponibilidad();
 CREATE TRIGGER TG_actualiza_calificacion_AU AFTER UPDATE ON contratacion
 FOR EACH ROW
 EXECUTE PROCEDURE actualizar_calificacion();
+/* Inserts */
+
+-- Inserta los servicios predefinidos que ofrece la aplicacion
+INSERT INTO servicio (tipo) VALUES
+('paseador de perro'),
+('plomero'),
+('electricista'),
+('cerrajero'),
+('pintor'),
+('profesor de ingles');
