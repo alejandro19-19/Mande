@@ -1,13 +1,4 @@
-/* Aqui poner las consultas que se usan para el manejo de la infomracion*/
-
-/* Consultas */
-
-/* Consultas para vistas */
-
--- Vista que almacena a todos los trabajadores que se encuentran disponibles para ser contratados
-
-/* consultas de insercion */
- 
+-- inserts de prueba
   INSERT INTO  trabajador(nombre,apellidos,email,numero_celular,fecha_nacimiento,direccion_residencia,direccion_latitud,direccion_longitud,documento_identidad,foto_perfil) VALUES 
 ('alejandro', 'escobar', 'alejandro@gmail.com', '1234', '2019-01-01', 'calle 5 prueba',19.416326917410476,-99.12479042256915, 'direcciondeldocumento', 'foto'),
 ('alejandro', 'peñaranda', 'peñaranda@gmail.com', '1234', '2019-01-01', 'calle 4 prueba',19.416326917410476,-99.12479042256915, 'direcciondeldocumento', 'foto')
