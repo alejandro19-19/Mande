@@ -136,7 +136,6 @@ RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-
 /* Triggers */
 --Este trigger se activa despues de que se realiza un insert en la tabla contratacion
 CREATE TRIGGER TG_cambiar_disponibilidad_AI AFTER INSERT ON contratacion 
