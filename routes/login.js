@@ -18,7 +18,7 @@ router.post('/', function (req, res, next) {
           res.status(401).json({ error: true, informacion: "el usuario no existe" });
         }
         else {
-          res.status(200).json({ error: false, informacion: "se ha logueado exitosamente" });
+          res.status(200).json({ error: false, informacion: "se ha logueado exitosamente", tipo: req.body.tipo, email: req.body.email, numero_celular: req.body.numero_celular });
         }
       }
       verificarCliente().then();
@@ -30,7 +30,7 @@ router.post('/', function (req, res, next) {
           res.status(401).json({ error: true, informacion: "el usuario no existe" });
         }
         else {
-          res.status(200).json({ error: false, informacion: "se ha logueado exitosamente" });
+          res.status(200).json({ error: false, informacion: "se ha logueado exitosamente", tipo: req.body.tipo, email: req.body.email, numero_celular: req.body.numero_celular });
         }
       }
       verificarTrabajador().then();
