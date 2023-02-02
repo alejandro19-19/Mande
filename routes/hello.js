@@ -4,9 +4,14 @@ const connect = require('./db_pool_connect');
 var config = require('./config');
 
 
+ 
+
+
+
 //parece que esto sobra con el connect
 const { Client } = require('pg');
 const { database, password } = require('./config');
+
 const prueba = async () => {
   const client = new Client(config)
   await client.connect()
@@ -14,6 +19,7 @@ const prueba = async () => {
   const res = await client.query('select * from servicio')
   console.log(res.rows[0]) // Hello world!
   await client.end()
+  
 }
 
 prueba().then();

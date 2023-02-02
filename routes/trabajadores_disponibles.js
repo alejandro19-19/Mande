@@ -24,9 +24,9 @@ const gradosARadianes = (grados) => {
 
 
 /**
- * Listar todos los trabajadores disponibles ordenados por calificacion, distancia y precio
+ * Listar todos los trabajadores disponibles ordenados por calificacion y precio
  */
-router.get('/:id', function (req, res, next) {
+router.post('/', function (req, res, next) {
     connect(function (err, client, done) {
 
         if (err) {
@@ -35,11 +35,11 @@ router.get('/:id', function (req, res, next) {
   
         //use the client for executing the query
         const obtenerDistancias = async () => {
-        cliente = await client.query(`SELECT * FROM cliente where id = '${req.params.id}';`)
+        cliente = await client.query(`SELECT * FROM cliente where id = '${req.body.id_cliente}';`)
         latitud_cliente = cliente.rows[0].direccion_latitud;
         longitud_cliente = cliente.rows[0].direccion_longitud;
 
-        client.query(`SELECT nombre,apellidos,email,direccion_residencia,direccion_latitud,direccion_longitud,foto_perfil,id_trabajador,id_servicio,calificacion,valor_fraccion FROM trabajadores_disponibles where id_servicio = '${req.params.id}';`, function (err, result) {
+        client.query(`SELECT nombre,apellidos,email,direccion_residencia,direccion_latitud,direccion_longitud,foto_perfil,id_trabajador,id_servicio,calificacion,valor_fraccion FROM trabajadores_disponibles where id_servicio = '${req.body.id_servicio}';`, function (err, result) {
             //call `done(err)` to release the client back to the pool (or destroy it if there is an error)
             done(err);
     
