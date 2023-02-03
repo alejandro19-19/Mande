@@ -8,7 +8,7 @@
 
 ## Installation
 ***
-A little intro about the installation. 
+Serie de pasos para ejecutar el backend. 
 ```
 $ git clone https://example.com
 $ cd ../path/to/the/file
