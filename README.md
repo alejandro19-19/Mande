@@ -1,4 +1,4 @@
-# proyecto_db
+# Mande - Proyecto Bases de Datos
 ***
 # Integrantes: 
   * Alejandro Peñaranda Agudelo - 1941008
