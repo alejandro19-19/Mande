@@ -20,8 +20,8 @@ CREATE TABLE cliente (
     numero_celular VARCHAR(100) NOT NULL,
     fecha_nacimiento DATE NOT NULL,
     direccion_residencia VARCHAR(100) NOT NULL,
-    direccion_latitud FLOAT,
-    direccion_longitud FLOAT,
+    direccion_latitud FLOAT NOT NULL,
+    direccion_longitud FLOAT NOT NULL,
     recibo_servicio_publico VARCHAR(300) NOT NULL
 );
 
@@ -34,8 +34,8 @@ CREATE TABLE trabajador (
     numero_celular VARCHAR(100) NOT NULL,
     fecha_nacimiento DATE NOT NULL,
     direccion_residencia VARCHAR(100) NOT NULL,
-    direccion_latitud FLOAT,
-    direccion_longitud FLOAT,
+    direccion_latitud FLOAT NOT NULL,
+    direccion_longitud FLOAT NOT NULL,
     disponible BOOLEAN NOT NULL DEFAULT true,
     documento_identidad VARCHAR(300) NOT NULL,
     foto_perfil VARCHAR(300) NOT NULL
