@@ -8,23 +8,30 @@
 
 ## Instalacion
 ***
-Pasos para crear la base de datos en postgresql.
+Pasos preliminares:
 ```
-$ git clone https://example.com
+Instalar postgresql 15
+Instalar nodeJS version 18
+$ git clone https://github.com/alejandro19-19/Mande.git
+
+```
+Pasos para crear la base de datos en postgresl:
+```
+$ git clone https://github.com/alejandro19-19/Mande.git
 $ cd ../path/to/the/file
 $ npm install
 $ npm start
 ```
-Pasos para ejecutar el Backend. 
+Pasos para ejecutar el Backend:
 ```
-$ git clone https://example.com
+$ git clone https://github.com/alejandro19-19/Mande.git
 $ cd ../path/to/the/file
 $ npm install
 $ npm start
 ```
-Pasos para ejecutar el Frontend.
+Pasos para ejecutar el Frontend:
 ```
-$ git clone https://example.com
+$ git clone https://github.com/alejandro19-19/Mande.git
 $ cd ../path/to/the/file
 $ npm install
 $ npm start
