@@ -14,7 +14,7 @@ router.get('/:id', function (req, res, next) {
         if (err) {
           return console.error('error running query', err);
         }
-        res.status(302).json({ error: false, informacion: result.rows });
+        res.status(302).json({ error: false, informacion: result.rows[0]});
       });
     }
     obtenerInfo().then();
