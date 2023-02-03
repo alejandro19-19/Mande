@@ -6,9 +6,16 @@
   * Juan Camilo Santa Gomez - 1943214
 
 
-## Installation
+## Instalacion
 ***
-Serie de pasos para ejecutar el backend. 
+Serie de pasos para ejecutar el Backend. 
+```
+$ git clone https://example.com
+$ cd ../path/to/the/file
+$ npm install
+$ npm start
+```
+Pasos para ejecutar el Frontend.
 ```
 $ git clone https://example.com
 $ cd ../path/to/the/file
