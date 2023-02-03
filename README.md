@@ -10,19 +10,19 @@
 ***
 Pasos preliminares:
 ```
-Instalar postgresql 15
-Instalar nodeJS version 18
-Clonar el repositorio con el siguiente comando:
+- Instalar postgresql 15
+- Instalar nodeJS version 18
+- Clonar el repositorio con el siguiente comando:
 
 $ git clone https://github.com/alejandro19-19/Mande.git
 
 ```
 Pasos para crear la base de datos en postgresl:
 ```
-$ git clone https://github.com/alejandro19-19/Mande.git
-$ cd ../path/to/the/file
-$ npm install
-$ npm start
+En sql shell ejecutar los siguientes comandos:
+
+$ \cd /path/to/the/file/  (paht al directorio Mande_database del proyecto)
+$ \i createbd.sql
 ```
 Pasos para ejecutar el Backend:
 ```
