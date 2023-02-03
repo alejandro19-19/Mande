@@ -21,7 +21,7 @@ Pasos para crear la base de datos en postgresl:
 ```
 En sql shell ejecutar los siguientes comandos:
 
-$ \cd /path/to/the/file/  (path al directorio Mande_database del proyecto)
+$ \cd ../path/to/the/file/  (path al directorio Mande_database del proyecto)
 $ \i createbd.sql
 ```
 Pasos para ejecutar el Backend:
