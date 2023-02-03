@@ -12,6 +12,8 @@ Pasos preliminares:
 ```
 Instalar postgresql 15
 Instalar nodeJS version 18
+Clonar el repositorio con el siguiente comando:
+
 $ git clone https://github.com/alejandro19-19/Mande.git
 
 ```
