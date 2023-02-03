@@ -6,7 +6,7 @@
   * Juan Camilo Santa Gomez - 1943214
 
 
-## Instalacion
+## Instalación
 ***
 Pasos preliminares:
 ```
