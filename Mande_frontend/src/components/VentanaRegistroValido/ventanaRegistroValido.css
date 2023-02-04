@@ -1,0 +1,29 @@
+.ventana_RegistroValido{
+    position: absolute;
+    width: 300px;
+    background-color: green;
+    border: #0f172a;
+    padding: 16px 32px 24px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.botonC_RegistroValido{
+    color:white;
+    background-color: green;
+    border-radius: 10px;
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.botonP_RegistroValido{
+    color:white;
+    background-color: orange;
+    width: 200px;
+    height: 275px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 20px
+}

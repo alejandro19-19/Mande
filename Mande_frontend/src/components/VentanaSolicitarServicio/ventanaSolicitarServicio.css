@@ -1,0 +1,26 @@
+.ventana_SolicitarServicio{
+    position: absolute;
+    width: 300px;
+    background-color: #fde68a;
+    border: #0f172a;
+    padding: 16px 32px 24px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.botonC_SolicitarServicio{
+    color:white;
+    background-color: black;
+    border-radius: 10px;
+}
+
+.botonP_SolicitarServicio{
+    color:white;
+    background-color: orange;
+    width: 200px;
+    height: 275px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 20px
+}

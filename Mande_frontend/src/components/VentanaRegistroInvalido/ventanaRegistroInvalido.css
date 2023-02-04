@@ -1,0 +1,29 @@
+.ventana_ResgistroInvalido{
+    position: absolute;
+    width: 300px;
+    background-color: red;
+    border: #0f172a;
+    padding: 16px 32px 24px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.botonC_ResgistroInvalido{
+    color:white;
+    background-color: red;
+    border-radius: 10px;
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.botonP_ResgistroInvalido{
+    color:white;
+    background-color: orange;
+    width: 200px;
+    height: 275px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 20px
+}
